@@ -13,7 +13,7 @@ spec:
         app: "{{app_name}}"
     spec:
       containers:
-        - name: "{{app_name}}
+        - name: "{{app_name}}"
           image: "{{nexus_url}}/{{nexus_repo}}/{{app_name}}:{{image_tag}}"
           ports:
             - name: http 
