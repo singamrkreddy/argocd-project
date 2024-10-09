@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{app_name}}
+  name: "{{app_name}}"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{app_name}}
+      app: "{{app_name}}"
   template:
     metadata:
       labels:
-        app: {{app_name}}
+        app: "{{app_name}}"
     spec:
       containers:
-        - name: {{app_name}}
-          image: {{nexus_url}}/{{nexus_repo}}/{{app_name}}:{{image_tag}}
+        - name: "{{app_name}}
+          image: "{{nexus_url}}/{{nexus_repo}}/{{app_name}}:{{image_tag}}"
           ports:
             - name: http 
               containerPort: 80
       imagePullSecrets:
-        - name: {{nexus_secret_name}}
+        - name: "{{nexus_secret_name}}"
