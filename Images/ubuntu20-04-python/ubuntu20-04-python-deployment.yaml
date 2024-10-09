@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{app_name}}"
+  name: "ubuntu20-04-python"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "{{app_name}}"
+      app: "ubuntu20-04-python"
   template:
     metadata:
       labels:
-        app: "{{app_name}}"
+        app: "ubuntu20-04-python"
     spec:
       containers:
-        - name: "{{app_name}}"
-          image: "{{nexus_url}}/{{nexus_repo}}/{{app_name}}:{{image_tag}}"
+        - name: "ubuntu20-04-python"
+          image: "10.20.153.64:8082/repository/8bit-community/ubuntu20-04-python:python"
           ports:
             - name: http 
               containerPort: 80
       imagePullSecrets:
-        - name: "{{nexus_secret_name}}"
+        - name: "nexus-docker-registry"
