@@ -1,5 +1,0 @@
-app_name: "ubuntu20-04-python"
-nexus_url: "10.20.153.64:8082"
-nexus_repo: "repository/8bit-community"
-tag: "python"
-nexus_secret_name: "nexus-docker-registry"
