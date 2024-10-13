@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-neutrino-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: new-neutrino-ui
+  template:
+    metadata:
+      labels:
+        app: new-neutrino-ui
+    spec:
+      hostAliases:
+      - ip: "198.18.20.39"
+        hostnames:
+        - "shopgw.ctrls.com"
+      containers:
+      - name: new-neutrino-ui
+        image: "10.20.153.64:8082/repository/8bit-community/<image_name>:v1  # 'latest' will be replaced by Image Updater
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 22
+        volumeMounts:
+        - name: amanaims-volume
+          mountPath: /aman/aims
+        - name: optdevelopment-volume
+          mountPath: /opt/development
+      imagePullSecrets:
+      - name: nexus-docker-registry
+      volumes:
+      - name: amanaims-volume
+        persistentVolumeClaim:
+          claimName: pvcamanaims
+      - name: optdevelopment-volume
+        persistentVolumeClaim:
+          claimName: pvcoptdevelopment
