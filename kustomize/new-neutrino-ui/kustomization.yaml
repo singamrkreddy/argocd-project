@@ -4,5 +4,5 @@ resources:
 - deployment.yaml
 - service.yaml
 images:
-- name: "10.20.153.64:8082/repository/8bit-community/new-neutrino-ui"
-  newTag: "1"
+- name: 10.20.153.64:8082/repository/8bit-community/new-neutrino-ui
+  newTag: "2"
