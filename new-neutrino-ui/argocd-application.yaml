@@ -4,9 +4,10 @@ metadata:
   name: new-neutrino-ui
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: 10.20.153.64:8082/repository/8bit-community/new-neutrino-ui
+    argocd-image-updater.argoproj.io/image-list: 10.20.153.64:8082/repository/8bit-community/new-neutrino-ui:1
     argocd-image-updater.argoproj.io/new-neutrino-ui.update-strategy: semver
     argocd-image-updater.argoproj.io/new-neutrino-ui.allow-tags: regexp:^[0-9]+$
+    argocd-image-updater.argoproj.io/new-neutrino-ui.force-update: "true"
     argocd-image-updater.argoproj.io/new-neutrino-ui.pull-secret: nexus-docker-registry
 spec:
   project: default
