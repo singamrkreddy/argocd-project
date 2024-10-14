@@ -18,7 +18,7 @@ spec:
         - "shopgw.ctrls.com"
       containers:
       - name: "new-neutrino-ui"
-        image: "10.20.153.64:8082/repository/8bit-community/new-neutrino-ui:1"  # No tag is mentioned latest tag will be used by Image Updater
+        image: "10.20.153.64:8082/repository/8bit-community/new-neutrino-ui"  # No tag is mentioned latest tag will be used by Image Updater
         imagePullPolicy: Always
         ports:
         - containerPort: 22
