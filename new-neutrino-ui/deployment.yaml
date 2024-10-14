@@ -20,19 +20,8 @@ spec:
       - name: new-neutrino-ui
         image: "10.20.153.64:8082/repository/8bit-community/new-neutrino-ui  # No tag is mentioned latest tag will be used by Image Updater
         imagePullPolicy: Always
-      imagePullSecrets:
-      - name: nexus-docker-registry
         ports:
         - containerPort: 22
-        volumeMounts:
-        - name: amanaims-volume
-          mountPath: /aman/aims
-        - name: optdevelopment-volume
-          mountPath: /opt/development
-      volumes:
-      - name: amanaims-volume
-        persistentVolumeClaim:
-          claimName: pvcamanaims
-      - name: optdevelopment-volume
-        persistentVolumeClaim:
-          claimName: pvcoptdevelopment
+      imagePullSecrets:
+      - name: nexus-docker-registry
+        
