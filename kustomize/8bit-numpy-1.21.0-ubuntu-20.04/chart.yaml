@@ -1,5 +1,0 @@
-# Chart.yaml
-apiVersion: v2
-name: 8bit-numpy
-description: A Helm chart for 8bit-numpy application
-version: 0.1.0
