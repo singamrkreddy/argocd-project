@@ -1,0 +1,33 @@
+# application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: new-neutrino-ui
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: "{{app.name}}={{app.image.repository}}/{{app.image.name}}"
+    argocd-image-updater.argoproj.io/{{app.name}}.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/{{app.name}}.allow-tags: regexp:^numpy\.v\..*__pandas\.v\..*__mongodb__nginx$
+    argocd-image-updater.argoproj.io/{{app.name}}.force-update: "true"
+    argocd-image-updater.argoproj.io/{{app.name}}.registry-url: "http://{{app.image.repository | split ':' | first}}"
+    argocd-image-updater.argoproj.io/{{app.name}}.insecure: "true"
+    argocd-image-updater.argoproj.io/{{app.name}}.allow-insecure-http: "true"
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: kustomization:/argo-cd
+    argocd-image-updater.argoproj.io/{{app.name}}.pull-secret: "pullsecret:argocd/{{app.imagePullSecret}}"
+spec:
+  project: default
+  source:
+    repoURL: https://github.8bit.ai/gitusr/Orchestration-Playbook.git
+    targetRevision: HEAD
+    path: argo-cd
+    # Reference the parameters file
+    directory:
+      include: parameters.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
