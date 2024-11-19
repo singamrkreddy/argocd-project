@@ -8,3 +8,7 @@ app:
     tag: "numpy.v.1.21.0__pandas.v.1.3.0__mongodb__nginx"
   port: 22
   imagePullSecret: "nexus-docker-registry"
+
+argocd:
+  repoURL: "https://github.8bit.ai/gitusr/Orchestration-Playbook.git"
+  namespace: "default"
