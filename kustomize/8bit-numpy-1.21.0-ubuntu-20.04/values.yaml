@@ -9,6 +9,11 @@ app:
   port: 22
   imagePullSecret: "nexus-docker-registry"
 
+service:
+  type: NodePort
+  portName: ssh
+  protocol: TCP
+
 argocd:
   repoURL: "https://github.8bit.ai/gitusr/Orchestration-Playbook.git"
   namespace: "default"
