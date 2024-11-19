@@ -1,0 +1,16 @@
+# parameters.yaml
+parameters:
+- name: app.name
+  value: 8bit-numpy-1.21.0-ubuntu-20.04
+- name: app.replicas
+  value: "1"
+- name: app.image.repository
+  value: 10.20.153.64:8082/8bit-official
+- name: app.image.name
+  value: 8bit-numpy-1.21.0-ubuntu-20.04
+- name: app.image.tag
+  value: numpy.v.1.21.0__pandas.v.1.3.0__mongodb__nginx
+- name: app.port
+  value: "22"
+- name: app.imagePullSecret
+  value: nexus-docker-registry
