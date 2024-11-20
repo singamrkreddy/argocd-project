@@ -3,9 +3,9 @@ app:
   name: 8bit-numpy-1.21.0-ubuntu-20.04
   replicas: 1
   image:
-    repository: "10.20.153.64:8082/8bit-official"
+    repository: "10.20.153.64:8082/repository/8bit-official"
     name: "8bit-numpy-1.21.0-ubuntu-20.04"
-    tag: "numpy.v.1.21.0__pandas.v.1.3.0__mongodb__nginx"
+    tag: "tensorflow.v.2.10__numpy.v.1.21.0__xgboost.v.1.6.0__opencv.v.4.5.5__mongodb_nginx"
   port: 22
   imagePullSecret: "nexus-docker-registry"
 
@@ -15,5 +15,5 @@ service:
   protocol: TCP
 
 argocd:
-  repoURL: "https://github.8bit.ai/gitusr/Orchestration-Playbook.git"
+  repoURL: "https://github.com/singamrkreddy/argocd-project.git"
   namespace: "default"
