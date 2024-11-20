@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: new-neutrino-ui
+  name: "{{app.name}}"
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: "{{app.name}}={{app.image.repository}}/{{app.image.name}}"
@@ -13,7 +13,7 @@ metadata:
     argocd-image-updater.argoproj.io/{{app.name}}.insecure: "true"
     argocd-image-updater.argoproj.io/{{app.name}}.allow-insecure-http: "true"
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization:/argo-cd
+    # argocd-image-updater.argoproj.io/write-back-target: kustomization:/argo-cd
     argocd-image-updater.argoproj.io/{{app.name}}.pull-secret: "pullsecret:argocd/{{app.imagePullSecret}}"
 spec:
   project: default
