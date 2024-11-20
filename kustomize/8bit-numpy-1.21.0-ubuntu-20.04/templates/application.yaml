@@ -13,7 +13,9 @@ metadata:
     argocd-image-updater.argoproj.io/{{ .Values.app.name }}.insecure: "true"
     argocd-image-updater.argoproj.io/{{ .Values.app.name }}.allow-insecure-http: "true"
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization:/argo-cd
+    argocd-image-updater.argoproj.io/write-back-target: "helmvalues:values.yaml"
+    # For GitHub credentials if needed
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd-image-updater/git-creds
     argocd-image-updater.argoproj.io/{{ .Values.app.name }}.pull-secret: "pullsecret:argocd/{{ .Values.app.imagePullSecret }}"
 spec:
   project: default
