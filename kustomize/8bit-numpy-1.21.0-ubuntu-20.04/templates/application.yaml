@@ -5,18 +5,18 @@ metadata:
   name: {{ .Values.app.name }}
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: "{{ .Values.app.name }}={{ .Values.app.image.repository }}/{{ .Values.app.image.name }}"
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.update-strategy: newest-build
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.allow-tags: regexp:^numpy\.v\..*__pandas\.v\..*__mongodb__nginx$
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.force-update: "true"
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.registry-url: "http://{{ .Values.app.image.repository | split ':' | first }}"
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.insecure: "true"
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.allow-insecure-http: "true"
+    argocd-image-updater.argoproj.io/image-list: "{{ .Values.app.image.name }}={{ .Values.app.image.repository }}/{{ .Values.app.image.name }}"
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.allow-tags: regexp:^tensorflow\.v\..*__numpy\.v\..*__xgboost\.v\..*__opencv\.v\..*__mongodb_nginx$
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.force-update: "true"
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.registry-url: http://10.20.153.64:8082
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.insecure: "true"
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.allow-insecure-http: "true"
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: "helmvalues:values.yaml"
     # For GitHub credentials if needed
-    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd-image-updater/git-creds
-    argocd-image-updater.argoproj.io/{{ .Values.app.name }}.pull-secret: "pullsecret:argocd/{{ .Values.app.imagePullSecret }}"
+    #argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd-image-updater/git-creds
+    argocd-image-updater.argoproj.io/{{ .Values.app.image.name }}.pull-secret: "pullsecret:argocd/{{ .Values.app.imagePullSecret }}"
 spec:
   project: default
   source:
