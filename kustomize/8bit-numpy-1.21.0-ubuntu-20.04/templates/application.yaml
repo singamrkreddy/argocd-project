@@ -22,7 +22,7 @@ spec:
   source:
     repoURL: {{ .Values.argocd.repoURL }}
     targetRevision: HEAD
-    path: argo-cd
+    path: kustomize/8bit-numpy-1.21.0-ubuntu-20.04
     helm:
       valueFiles:
         - values.yaml
