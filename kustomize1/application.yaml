@@ -5,9 +5,9 @@ metadata:
   name: 8bit-numpy-1.21.0-ubuntu-20.04
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: 8bit-numpy-1.21.0-ubuntu-20.04=10.20.153.64:8082/8bit-official/8bit-numpy-1.21.0-ubuntu-20.04
+    argocd-image-updater.argoproj.io/image-list: 8bit-numpy-1.21.0-ubuntu-20.04=10.20.153.64:8082/repository/8bit-official/8bit-numpy-1.21.0-ubuntu-20.04
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.update-strategy: newest-build
-    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.allow-tags: regexp:^numpy\.v\..*__pandas\.v\..*__mongodb__nginx$
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.allow-tags: regexp:^tensorflow\.v\..*__numpy\.v\..*__xgboost\.v\..*__opencv\.v\..*__mongodb_nginx$
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.force-update: "true"
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.registry-url: http://10.20.153.64:8082
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.insecure: "true"
@@ -21,9 +21,6 @@ spec:
     repoURL: https://github.com/singamrkreddy/argocd-project.git
     targetRevision: HEAD
     path: kustomize1
-    # Reference the parameters file
-    directory:
-      include: parameters.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
