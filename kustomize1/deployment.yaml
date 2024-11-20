@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{app.name}}"
+  name: "8bit-numpy-1.21.0-ubuntu-20.04"
 spec:
-  replicas: {{app.replicas}}
+  replicas: 1
   selector:
     matchLabels:
-      app: "{{app.name}}"
+      app: "8bit-numpy-1.21.0-ubuntu-20.04"
   template:
     metadata:
       labels:
-        app: "{{app.name}}"
+        app: "8bit-numpy-1.21.0-ubuntu-20.04"
     spec:
       containers:
-      - name: "{{app.name}}"
-        image: "{{app.image.repository}}/{{app.image.name}}:{{app.image.tag}}"
+      - name: "8bit-numpy-1.21.0-ubuntu-20.04"
+        image: "10.20.153.64:8082/8bit-official/8bit-numpy-1.21.0-ubuntu-20.04:numpy.v.1.21.0__pandas.v.1.3.0__mongodb__nginx"
         imagePullPolicy: Always
         ports:
-        - containerPort: {{app.port}}
+        - containerPort: 22
       imagePullSecrets:
-      - name: "{{app.imagePullSecret}}"
+      - name: "nexus-docker-registry"
