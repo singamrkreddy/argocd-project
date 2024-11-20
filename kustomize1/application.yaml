@@ -2,19 +2,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "{{app.name}}"
+  name: 8bit-numpy-1.21.0-ubuntu-20.04
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: "{{app.name}}={{app.image.repository}}/{{app.image.name}}"
-    argocd-image-updater.argoproj.io/{{app.name}}.update-strategy: newest-build
-    argocd-image-updater.argoproj.io/{{app.name}}.allow-tags: regexp:^numpy\.v\..*__pandas\.v\..*__mongodb__nginx$
-    argocd-image-updater.argoproj.io/{{app.name}}.force-update: "true"
-    argocd-image-updater.argoproj.io/{{app.name}}.registry-url: "http://{{app.image.repository | split ':' | first}}"
-    argocd-image-updater.argoproj.io/{{app.name}}.insecure: "true"
-    argocd-image-updater.argoproj.io/{{app.name}}.allow-insecure-http: "true"
+    argocd-image-updater.argoproj.io/image-list: 8bit-numpy-1.21.0-ubuntu-20.04=10.20.153.64:8082/8bit-official/8bit-numpy-1.21.0-ubuntu-20.04
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.allow-tags: regexp:^numpy\.v\..*__pandas\.v\..*__mongodb__nginx$
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.force-update: "true"
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.registry-url: http://10.20.153.64:8082
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.insecure: "true"
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.allow-insecure-http: "true"
     argocd-image-updater.argoproj.io/write-back-method: git
     # argocd-image-updater.argoproj.io/write-back-target: kustomization:/argo-cd
-    argocd-image-updater.argoproj.io/{{app.name}}.pull-secret: "pullsecret:argocd/{{app.imagePullSecret}}"
+    argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.pull-secret: pullsecret:argocd/nexus-registry
 spec:
   project: default
   source:
