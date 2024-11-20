@@ -1,6 +1,6 @@
 # values.yaml
 app:
-  name: 8bit-numpy-1.21.0-ubuntu-20.04
+  name: 8bit-numpy-1-21-0-ubuntu-20-04-test
   replicas: 1
   image:
     repository: "10.20.153.64:8082/repository/8bit-official"
@@ -10,6 +10,7 @@ app:
   imagePullSecret: "nexus-docker-registry"
 
 service:
+  name: test-8bit-numpy-service
   type: NodePort
   portName: ssh
   protocol: TCP
