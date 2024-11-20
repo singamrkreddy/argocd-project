@@ -18,9 +18,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.8bit.ai/gitusr/Orchestration-Playbook.git
+    repoURL: https://github.com/singamrkreddy/argocd-project.git
     targetRevision: HEAD
-    path: argo-cd
+    path: kustomize1
     # Reference the parameters file
     directory:
       include: parameters.yaml
