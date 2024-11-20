@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: "8bit-numpy"
-        image: "10.20.153.64:8082/8bit-official/8bit-numpy-1.21.0-ubuntu-20.04:numpy.v.1.21.0__pandas.v.1.3.0__mongodb__nginx"
+        image: "10.20.153.64:8082/repository/8bit-official/8bit-numpy-1.21.0-ubuntu-20.04:tensorflow.v.2.10__numpy.v.1.21.0__xgboost.v.1.6.0__opencv.v.4.5.5__mongodb_nginx"
         imagePullPolicy: Always
         ports:
         - containerPort: 22
