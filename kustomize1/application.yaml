@@ -13,7 +13,7 @@ metadata:
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.insecure: "true"
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.allow-insecure-http: "true"
     argocd-image-updater.argoproj.io/write-back-method: git
-    # argocd-image-updater.argoproj.io/write-back-target: kustomization:/argo-cd
+    argocd-image-updater.argoproj.io/write-back-target: kustomization:/kustomize1
     argocd-image-updater.argoproj.io/8bit-numpy-1.21.0-ubuntu-20.04.pull-secret: pullsecret:argocd/nexus-registry
 spec:
   project: default
