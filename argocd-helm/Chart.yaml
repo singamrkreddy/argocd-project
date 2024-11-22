@@ -1,0 +1,9 @@
+apiVersion: v2
+name: 8bit-numpy-1.21.0-ubuntu-20.04
+version: 0.1.0
+description: A Helm chart for 8bit-numpy-1.21.0-ubuntu-20.04 application
+type: application
+appVersion: "1.0.0"
+maintainers:
+  - name: 8bit.ai
+    email: team@8bit.ai
