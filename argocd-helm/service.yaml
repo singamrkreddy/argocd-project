@@ -1,0 +1,14 @@
+# templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+spec:
+  selector:
+    app: {{ .Values.app.name }}
+  type: {{ .Values.service.type | default "NodePort" }}
+  ports:
+  - name: {{ .Values.service.portName | default "ssh" }}
+    protocol: {{ .Values.service.protocol | default "TCP" }}
+    port: {{ .Values.app.port }}
+    targetPort: {{ .Values.app.port }}
